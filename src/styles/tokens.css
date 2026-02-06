@@ -1,0 +1,14 @@
+/* src/styles/tokens.css */
+:root {
+  --ink: #1b1a17;
+  --paper: #f7f4ee;
+  --bg-cream: #f5f0e6;
+  --panel-yellow: #ffe600;
+  --panel-lime: #c7e955;
+  --panel-pink: #ff4fd1;
+  --panel-blue: #6a7bff;
+  --panel-beige: #efe5d2;
+  --panel-dark: #2a2622;
+  --shadow: #000;
+  --stroke: rgba(27, 26, 23, 0.85);
+}

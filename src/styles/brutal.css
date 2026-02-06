@@ -1,0 +1,43 @@
+/* src/styles/brutal.css */
+/* NOTE: regular CSS (without @tailwind). Tailwind utilities still come from your Tailwind build. */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* selection */
+::selection {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* small helpers */
+.kx-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.kx-stroke {
+  border: 2px solid #000;
+}
+
+.kx-shadow {
+  box-shadow: 6px 6px 0 #000;
+}
+
+.kx-ink {
+  color: var(--ink);
+}
+
+.kx-paper {
+  background: var(--paper);
+}

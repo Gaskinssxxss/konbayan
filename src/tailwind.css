@@ -1,0 +1,350 @@
+@import url("https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Space+Grotesk:wght@300..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Streamtime-like warm paper + bold ink */
+  --ink: #1b1a17;
+  --ink-soft: rgba(27, 26, 23, 0.7);
+  --stroke: rgba(27, 26, 23, 0.22);
+
+  /* palette */
+  --paper: #f7f4ee;
+  --bg-cream: #f5f0e6;
+  --panel-yellow: #ffe600;
+  --panel-lime: #c7e955;
+  --panel-pink: #ff4fd1;
+  --panel-blue: #6a7bff;
+  --panel-beige: #efe5d2;
+  --panel-dark: #2a2622;
+
+  --shadow: #000;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg-cream);
+  color: var(--ink);
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, -apple-system,
+    Segoe UI, Roboto, Helvetica, Arial;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+::selection {
+  background: rgba(11, 61, 46, 0.15);
+}
+
+@layer components {
+  /* layout */
+.kx-wrap {
+  @apply mx-auto w-full max-w-[1180px];
+}
+.kx-pad {
+  @apply px-5 sm:px-10;
+}
+  .kx-section {
+    @apply relative;
+  }
+
+  /* pills/buttons */
+.kx-pill {
+  @apply rounded-full border-2 border-black bg-white/90
+           px-3 py-2 text-[11px] uppercase tracking-[0.28em] font-bold
+           shadow-[3px_3px_0_#000];
+}
+
+.kx-store {
+  @apply rounded-full bg-[color:var(--ink)] px-4 py-3 text-[11px]
+           uppercase tracking-[0.28em] text-white font-bold
+           shadow-[3px_3px_0_#000];
+}
+
+  /* typography */
+.kx-kicker {
+  @apply text-[12px] uppercase tracking-[0.22em] opacity-80;
+}
+
+.kx-hero {
+  @apply font-black tracking-[-0.045em] leading-[0.88] text-center;
+  font-size: clamp(40px, 5.2vw, 96px);
+}
+
+.kx-title {
+  @apply font-black tracking-[-0.02em] leading-[0.95];
+  font-size: clamp(28px, 3.6vw, 64px);
+}
+
+.kx-word {
+  @apply font-black tracking-[-0.02em] leading-[0.95];
+  font-size: clamp(28px, 4.4vw, 72px);
+}
+
+.kx-sub {
+  @apply text-[16px] leading-[1.6];
+  color: var(--ink-soft);
+}
+
+.kx-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--stroke);
+  text-stroke: 1.5px var(--stroke);
+}
+
+  /* double title shadow */
+  .kx-double {
+    @apply relative inline-block;
+  }
+  .kx-double .back {
+    @apply pointer-events-none absolute inset-0 opacity-[0.22];
+    transform: translateY(2px);
+  }
+
+  /* panels */
+.kx-panel {
+  @apply rounded-[42px] shadow-[0_24px_60px_-40px_rgba(0,0,0,0.40)];
+}
+
+  .kx-cutout {
+    @apply select-none;
+    -webkit-user-drag: none;
+    filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.22));
+  }
+
+.kx-handle {
+  @apply mx-auto mt-6 h-[5px] w-[46px] rounded-full;
+  background: rgba(27, 26, 23, 0.25);
+}
+
+  /* deck */
+.kx-deck {
+  @apply relative h-[380px] sm:h-[440px];
+}
+
+.kx-card {
+  @apply absolute inset-0 m-auto h-[320px] sm:h-[380px] w-[92%] max-w-[820px]
+           rounded-[42px] border-2 border-black bg-white/85 overflow-hidden
+           shadow-[6px_6px_0_#000];
+}
+
+.kx-arrow {
+  @apply grid h-12 w-12 place-items-center rounded-full border-2 border-black
+           bg-white/95 shadow-[3px_3px_0_#000];
+}
+
+  /* ===== Maggie-like organic shapes ===== */
+  .kx-blob-wrap {
+    @apply relative;
+  }
+.kx-blob-wrap::before,
+.kx-blob-wrap::after {
+    content: "";
+    position: absolute;
+    inset: auto;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(0px);
+    opacity: 0.22;
+}
+
+  /* big side blobs */
+.kx-blob-wrap::before {
+  width: 380px;
+  height: 520px;
+  left: -170px;
+  top: 22%;
+  background: rgba(27, 26, 23, 0.28);
+  border-radius: 999px;
+  transform: rotate(12deg);
+}
+.kx-blob-wrap::after {
+  width: 420px;
+  height: 560px;
+  right: -200px;
+  top: 26%;
+  background: rgba(27, 26, 23, 0.28);
+  border-radius: 999px;
+  transform: rotate(-10deg);
+}
+
+  /* bottom “scallop / arc” like Maggie */
+  .kx-scallop {
+    position: relative;
+    overflow: visible;
+  }
+.kx-scallop::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -86px;
+    width: min(1100px, 130vw);
+    height: 220px;
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* paper section top divider */
+  .kx-paper-top {
+    position: relative;
+  }
+.kx-paper-top::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -70px;
+    width: min(1100px, 130vw);
+    height: 220px;
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* ensure content above shapes */
+  .kx-z {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* photo hover */
+  .kx-photo img {
+    transition: transform 280ms ease;
+    transform: scale(1);
+  }
+  .kx-photo:hover img {
+    transform: scale(1.06) rotate(-0.6deg);
+  }
+  .kx-card-hover {
+    transition: transform 220ms ease, box-shadow 220ms ease;
+  }
+  .kx-card-hover:hover {
+    transform: translateY(-4px) rotate(-0.3deg);
+    box-shadow: 10px 10px 0 #000;
+  }
+
+  /* collage wordmark */
+  .kx-wordmark {
+    @apply font-black uppercase text-center;
+    font-family: "Bowlby One SC", ui-sans-serif, system-ui, -apple-system,
+      Segoe UI, Roboto, Helvetica, Arial;
+    font-size: clamp(48px, 9.6vw, 160px);
+    letter-spacing: 0.02em;
+    line-height: 0.9;
+  }
+.kx-wordmark span {
+  display: inline-block;
+  transform: rotate(var(--rot, 0deg));
+}
+
+/* home page mobile scale (keep desktop composition, only scale down) */
+@media (max-width: 640px) {
+  .kx-home .kx-pad {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .kx-home .kx-kicker {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+  }
+  .kx-home .kx-title {
+    font-size: clamp(22px, 6.2vw, 42px);
+  }
+  .kx-home .kx-wordmark {
+    font-size: clamp(40px, 11.5vw, 120px);
+  }
+  .kx-home .kx-pill-btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    gap: 6px;
+  }
+  .kx-home .kx-block {
+    border-radius: 18px;
+    box-shadow: 4px 4px 0 #000;
+  }
+  .kx-home .kx-block img {
+    border-radius: 12px;
+  }
+  .kx-home table {
+    font-size: 11px;
+  }
+}
+
+/* pills */
+.kx-pill-btn {
+  @apply inline-flex items-center gap-2 rounded-full border-2 border-black
+           bg-white px-4 py-2 text-[12px] uppercase tracking-[0.18em] font-bold
+           shadow-[3px_3px_0_#000] transition;
+  }
+
+  /* section blocks */
+  .kx-block {
+    @apply border-2 border-black shadow-[6px_6px_0_#000] rounded-[24px];
+  }
+}
+
+/* local fonts (keep yours) */
+@font-face {
+  font-family: "Tigre";
+  src: url("../public/fonts/tigre.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Boricua";
+  src: url("../public/fonts/Boricua.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gobold";
+  src: url("../public/fonts/gb1.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gbht";
+  src: url("../public/fonts/gbht.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Hman";
+  src: url("../public/fonts/hman.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dal";
+  src: url("../public/fonts/dal.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Ana";
+  src: url("../public/fonts/ana.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Van";
+  src: url("../public/fonts/van.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "was";
+  src: url("../public/fonts/was.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
