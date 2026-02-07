@@ -1,0 +1,37 @@
+{
+  "weekly_board": [
+    {
+      "id": 1,
+      "day": "Monday",
+      "date": "2026-02-09",
+      "route": "Cycling Route",
+      "time": "09:00",
+      "note": "Farm stop",
+      "location": "Bayan",
+      "quota": 12,
+      "filled": 6
+    },
+    {
+      "id": 2,
+      "day": "Wednesday",
+      "date": "2026-02-11",
+      "route": "Coffee Route",
+      "time": "14:00",
+      "note": "Chill walk",
+      "location": "Senaru",
+      "quota": 10,
+      "filled": 4
+    },
+    {
+      "id": 3,
+      "day": "Saturday",
+      "date": "2026-02-14",
+      "route": "Family Mix",
+      "time": "08:30",
+      "note": "Custom pace",
+      "location": "Bayan",
+      "quota": 16,
+      "filled": 9
+    }
+  ]
+}
