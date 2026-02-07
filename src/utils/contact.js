@@ -1,4 +1,4 @@
-export const WA_NUMBER = "6285253856669";
+export const WA_NUMBER = "6281952610278";
 
 export function getWhatsAppLink(text = "") {
   const q = text ? `?text=${encodeURIComponent(text)}` : "";

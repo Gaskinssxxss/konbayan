@@ -8,7 +8,7 @@ export const site = {
   ],
   socials: [{ label: "Instagram", href: "https://www.instagram.com/konbayan/" }],
   contact: {
-    whatsapp: "+62 852-5385-6669",
+    whatsapp: "+62 819-5261-0278",
     meetPoint: "Konbayan Espresso & Farm (Bayan / Senaru)",
   },
 };
